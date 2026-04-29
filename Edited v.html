@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ek Paila — Prasun Devkota for NSAS President</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #142e1e;
+      --gold: #c9960c;
+      --gold-light: #e8b422;
+      --cream: #f7f4ee;
+      --cream-dark: #ede8df;
+      --white: #ffffff;
+      --text: #1a2e1f;
+      --text-light: #4a5e4f;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0e1a11; font-family: 'DM Sans', sans-serif; color: var(--text); }
+    .tabs { position: sticky; top: 0; z-index: 100; background: var(--green); display: flex; border-bottom: 2px solid var(--gold); }
+    .tab-btn { flex: 1; padding: 14px 8px; background: transparent; border: none; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
+    .tab-btn.active { color: var(--gold-light); border-bottom: 3px solid var(--gold-light); }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .manifesto { background: var(--cream); min-height: 100vh; }
+    .hero { background: var(--green); padding: 48px 40px 40px; position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 40px; }
+    .hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(201,150,12,0.15), transparent 70%); }
+    .hero-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .hero-name { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; color: var(--white); line-height: 0.95; margin-bottom: 6px; }
+    .hero-name span { color: var(--gold-light); }
+    .hero-title { font-size: 13px; font-weight: 500; letter-spacing: 4px; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 20px; }
+    .hero-tagline { display: inline-block; border: 1.5px solid rgba(201,150,12,0.6); padding: 10px 18px; font-size: 13px; font-weight: 600; color: var(--white); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+    .hero-devanagari { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 16px; color: var(--gold); display: block; margin-top: 8px; }
+    .hero-logo-box { text-align: center; padding-top: 8px; position: relative; z-index: 1; }
+    .hero-logo-box img { width: 130px; height: 130px; border-radius: 50%; display: block; margin: 0 auto 14px; }
+    .hero-logo-box .logo-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .hero-logo-box p { font-size: 12px; line-height: 1.8; color: rgba(255,255,255,0.65); max-width: 200px; }
+    .m-body { padding: 0 32px 48px; }
+    .opening { background: var(--green); margin: 0 -32px; padding: 32px 32px; margin-bottom: 36px; border-left: 4px solid var(--gold); }
+    .opening p { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.8; font-weight: 300; }
+    .opening strong { color: var(--white); font-weight: 600; }
+    .section-header { display: flex; align-items: center; gap: 14px; margin: 36px 0 20px; }
+    .section-num { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; color: var(--cream-dark); line-height: 1; min-width: 40px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--green); line-height: 1.2; }
+    .section-sub { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
+    .story-card { background: var(--white); border-radius: 2px; padding: 22px 24px; margin-bottom: 12px; border-left: 3px solid var(--gold); box-shadow: 0 1px 8px rgba(0,0,0,0.06); }
+    .story-card p { font-size: 14px; color: var(--text-light); line-height: 1.8; }
+    .story-card strong { color: var(--text); font-weight: 600; }
+    .plan-item { background: var(--white); border-radius: 2px; padding: 20px 24px; margin-bottom: 10px; display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start; box-shadow: 0 1px 8px rgba(0,0,0,0.05); }
+    .plan-icon { width: 40px; height: 40px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+    .plan-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+    .plan-body { font-size: 13.5px; color: var(--text-light); line-height: 1.75; }
+    .plan-body strong { color: var(--text); font-weight: 600; }
+    .closing-block { background: var(--green); margin: 36px -32px 0; padding: 32px; text-align: center; }
+    .closing-block .big { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--white); line-height: 1.5; margin-bottom: 16px; }
+    .closing-block .big span { color: var(--gold-light); }
+    .closing-block .deva { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 18px; color: var(--gold); }
+    .team-row { display: flex; justify-content: center; gap: 32px; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .team-member { text-align: center; }
+    .tm-name { font-size: 13px; font-weight: 600; color: var(--white); }
+    .tm-role { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 3px; }
+  </style>
+</head>
+<body>
+
+  <div class="tabs">
+    <button class="tab-btn active">📄 Manifesto</button>
+  </div>
+
+  <div class="panel active" id="panel-manifesto">
+    <div class="manifesto">
+
+      <div class="hero">
+        <!-- LEFT: Name and tagline -->
+        <div>
+          <div class="hero-eyebrow">NSAS Presidential Candidate · Southeastern Louisiana University</div>
+          <div class="hero-name">PRASUN<br><span>DEVKOTA</span></div>
+          <div class="hero-title">For President · 2025–26</div>
+          <div class="hero-tagline">Less Pressure. More Belonging.</div>
+          <span class="hero-devanagari">एक पाईला, एउटै दिशा — One step, same direction.</span>
+        </div>
+        <!-- RIGHT: Logo and meaning -->
+        <div class="hero-logo-box">
+          <img src="One direction.png" alt="Ek Paila Logo">
+          <div class="logo-label">The meaning behind Ek Paila</div>
+          <p>Not everyone has it figured out. Not everyone reaches the end in a straight line. Just one step — towards better education, better opportunities, a better future. Together.</p>
+        </div>
+      </div>
+
+      <div class="m-body">
+        <div class="opening">
+          <p>I didn't know what NSAS was when I landed. I figured it out the same way most of you did — by showing up, looking around, and slowly finding my people. I'm not running because I have everything figured out. <strong>I'm running because I know exactly what it feels like to be new here, to be grinding, and to still not feel like enough — and I think we can fix that.</strong></p>
+        </div>
+
+        <div class="section-header">
+          <div class="section-num">01</div>
+          <div>
+            <div class="section-title">Who I am &amp; why I'm here</div>
+            <div class="section-sub">The story behind the campaign</div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <p>I'm Prasun Devkota — freshman, finance major, second semester. I came in 2025 not knowing a single person in NSAS. My first real introduction to this community was the Teej program. After the event ended, while most people left, <strong>I stayed back and helped clean up.</strong> That's when Riyag bhai noticed me and suggested I run. That moment tells you everything about how I approach things.</p>
+        </div>
+
+        <div class="story-card">
+          <p>Since then I've been part of the Henna event — watched how the finances work, how reservations are made, how department funding flows, how food and resources get managed. I'm still learning. But <strong>I'm a finance major — numbers, planning, and making things sustainable is literally what I'm here to study.</strong> And I've been doing real event management since my Nepal Scout days — 5+ years of coordinating people, programs, and logistics on the ground.</p>
+        </div>
+
+        <div class="story-card">
+          <p>People say I'm too young, too new, too inexperienced. But who here walked in knowing everything? <strong>Nobody figures it out before they start. They figure it out by starting.</strong> I've been inside this community since day one — not watching from the outside, not applying because it looks good on a resume. Because I actually care.</p>
+        </div>
+
+        <div class="section-header">
+          <div class="section-num">02</div>
+          <div>
+            <div class="section-title">What's actually going on</div>
+            <div class="section-sub">The reality we don't always say out loud</div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <p>Our big events — Teej, Henna, sports — they're genuinely good. The vibe after, the dancing, the food, being around your own people far from home — <strong>that's irreplaceable and we should protect it.</strong> But we always miss people. Not because they don't care — because life here is relentless. Class, work, study, repeat. A 5–6 hour event on the wrong day is just too much.</p>
+        </div>
+
+        <div class="story-card">
+          <p>And even when people show up — some of them are still on the edge. Sitting quietly. Waiting for someone to come to them. Feeling like everyone else knows each other and they missed something. <strong>Nobody tells you that you don't belong. But sometimes you feel it anyway.</strong></p>
+        </div>
+
+        <div class="story-card">
+          <p>Then there's the comparison. Someone's already got an internship. Someone switched to a better major. Someone seems to have it all figured out. That pressure is real and it affects people more than we talk about — including what classes they choose, what paths they take, how confident they feel walking into a room.</p>
+        </div>
+
+        <div class="section-header">
+          <div class="section-num">03</div>
+          <div>
+            <div class="section-title">What Ek Paila will actually do</div>
+            <div class="section-sub">Specific. Realistic. No empty promises.</div>
+          </div>
+        </div>
+
+        <div class="plan-item">
+          <div class="plan-icon">☕</div>
+          <div>
+            <div class="plan-title">Chiya &amp; Guff — The drop-in meetup</div>
+            <div class="plan-body">Not chiya and painting — that already exists and it's great. This is different. <strong>A monthly no-agenda, no-RSVP, come-whenever gathering</strong> — someone's backyard, a common area, wherever. Just tea, just conversation, just people. For the ones who can't make the big events. For the ones who are still finding their feet.</div>
+          </div>
+        </div>
+
+        <div class="plan-item">
+          <div class="plan-icon">📅</div>
+          <div>
+            <div class="plan-title">NSAS Calendar — So nobody's caught off guard</div>
+            <div class="plan-body">A proper, shared calendar of all upcoming events — posted well in advance. <strong>No more finding out about things last minute.</strong> People can plan around it, tell their managers at work, actually show up.</div>
+          </div>
+        </div>
+
+        <div class="plan-item">
+          <div class="plan-icon">🎓</div>
+          <div>
+            <div class="plan-title">Real support for incoming freshmen</div>
+            <div class="plan-body">When I landed, I had no clue. Class selection, academic paths, how things actually work here — <strong>nobody should have to figure that out alone.</strong> We'll make sure every new student from Nepal has someone to call who's been through it. Not a pamphlet. A person.</div>
+          </div>
+        </div>
+
+        <div class="plan-item">
+          <div class="plan-icon">⚽</div>
+          <div>
+            <div class="plan-title">Female participation in sports — actually fix it</div>
+            <div class="plan-body">The previous panel did a great job with the sports event. But female engagement was low — and that's not anyone's fault, it's a design problem. <strong>We'll restructure sports events so women aren't an afterthought — mixed formats, more inclusive activities, events designed so everyone actually wants to be there.</strong></div>
+          </div>
+        </div>
+
+        <div class="plan-item">
+          <div class="plan-icon">📱</div>
+          <div>
+            <div class="plan-title">Social media that actually lives</div>
+            <div class="plan-body">396 followers, 95 posts — decent base. But we go quiet between events. <strong>Daily presence: fun facts about Nepal, quizzes, polls, behind-the-scenes, student spotlights.</strong> Not just event announcements. Content that makes people feel like they're part of something even when there's no event happening. And yes — growing our reach helps more students from Nepal choose SELU.</div>
+          </div>
+        </div>
+
+        <div class="plan-item">
+          <div class="plan-icon">💰</div>
+          <div>
+            <div class="plan-title">Financial reach — don't just depend on one source</div>
+            <div class="plan-body">Our seniors built strong relationships with department heads — that funding tradition continues and I'll work to expand it. But we also explore <strong>ticketed events, campus grants, small sponsorships, and reasonable entry fees for outsider-facing events.</strong> Sustainability, not profit. So we can do more without always worrying if we have enough.</div>
+          </div>
+        </div>
+
+        <div class="plan-item">
+          <div class="plan-icon">🌏</div>
+          <div>
+            <div class="plan-title">Open our events — share our culture</div>
+            <div class="plan-body">Our events are already open to everyone. We just need to actually tell people. <strong>Flyers, campus partnerships, cross-org collaborations.</strong> More non-Nepali faces at our events means more people understanding our culture — and more eyes on what NSAS really is. Charge a reasonable amount, cover costs, grow the reach.</div>
+          </div>
+        </div>
+
+        <div class="closing-block">
+          <div class="big">Vote for the version of NSAS<br><span>you actually wanted when you first got here.</span></div>
+          <div class="deva">एक पाईला, एउटै दिशा 🙏</div>
+          <div class="team-row">
+            <div class="team-member"><div class="tm-name">Prasun Devkota</div><div class="tm-role">President</div></div>
+            <div class="team-member"><div class="tm-name">Dipson</div><div class="tm-role">Vice President</div></div>
+            <div class="team-member"><div class="tm-name">Rijan Dhakal</div><div class="tm-role">Secretary</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPanel(id, btn) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      const panel = document.getElementById('panel-' + id);
+      if (panel) panel.classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
