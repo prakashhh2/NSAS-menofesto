@@ -1,9 +1,7 @@
 import useReveal from './useReveal';
 
-// ── Replace the src below with your actual Google Form embed URL ──
-// In Google Forms: Send → Embed (<>) → copy the src from the iframe code
-const GOOGLE_FORM_EMBED_URL =
-  'https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true';
+const GOOGLE_FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSe-UXCbGZr3biinfjT1JQHgJoHPuBPQqt8RmNYyZ4eRnWVqDA/viewform';
 
 export default function FeedbackSection() {
   const ref = useReveal();
@@ -16,17 +14,28 @@ export default function FeedbackSection() {
           <div className="section-sub">Your voice matters to this campaign</div>
         </div>
       </div>
-      <div className="google-form-wrapper reveal" ref={ref}>
-        <iframe
-          src={GOOGLE_FORM_EMBED_URL}
-          title="Ek Paila Feedback Form"
-          className="google-form-iframe"
-          frameBorder="0"
-          marginHeight="0"
-          marginWidth="0"
+      <div className="feedback-card reveal" ref={ref}>
+        <div className="feedback-card-icon"></div>
+        <div className="feedback-card-label">Why your feedback matters</div>
+        <p className="feedback-msg-text">
+          A community only grows when the people inside it are heard. We are not running this
+          campaign on assumptions — we want to know what has worked, what has fallen short, and
+          what you actually need from NSAS. Whether you have been here since the beginning or
+          just arrived, your experience matters and your input will directly shape how we lead.
+        </p>
+        <p className="feedback-msg-text">
+          This form takes less than two minutes. No name required. Just honest thoughts from
+          someone who is part of this community. Please take a moment to fill it out — it means
+          more than you think.
+        </p>
+        <a
+          href={GOOGLE_FORM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="feedback-btn"
         >
-          Loading form…
-        </iframe>
+          Fill out the Feedback Form
+        </a>
       </div>
     </div>
   );
