@@ -1,59 +1,53 @@
-import { useState } from 'react';
 import useReveal from './useReveal';
 
 function ProfileBlock({ imgSrc, name, role, badgesLeft, children }) {
   const ref = useReveal();
   return (
-    <div className="candidate-profile-grid reveal" ref={ref}>
-      <div className="candidate-photo-col">
+    <div className="cp-card reveal" ref={ref}>
+      <div className="cp-photo-side">
         {imgSrc
-          ? <img src={imgSrc} alt={name} className="candidate-photo" />
-          : <div className="candidate-photo-placeholder">{name[0]}</div>
+          ? <img src={imgSrc} alt={name} className="cp-photo-img" />
+          : <div className="cp-photo-fallback">{name[0]}</div>
         }
-        <div className="candidate-photo-name">{name}</div>
-        <div className="candidate-photo-role">{role}</div>
-        <div className="candidate-stats">
-          {badgesLeft.map(b => <span className="stat-badge" key={b}>{b}</span>)}
+        <div className="cp-photo-overlay" />
+        <div className="cp-photo-info">
+          <div className="cp-name">{name}</div>
+          <div className="cp-role-pill">{role}</div>
+          <div className="cp-badges">
+            {badgesLeft.map(b => <span className="stat-badge" key={b}>{b}</span>)}
+          </div>
         </div>
       </div>
-      <div>{children}</div>
-    </div>
-  );
-}
-
-function TeamCard({ emoji, name, role, desc }) {
-  const ref = useReveal();
-  return (
-    <div className="team-card reveal" ref={ref}>
-      <div className="team-avatar">{emoji}</div>
-      <div className="team-name">{name}</div>
-      <div className="team-role">{role}</div>
-      <p className="team-desc">{desc}</p>
+      <div className="cp-content-side">
+        {children}
+      </div>
     </div>
   );
 }
 
 export default function CandidateProfile() {
-  const [open, setOpen] = useState(false);
-
   return (
     <div className="candidate-section" id="candidate">
-      <div className="see-more-bar" onClick={() => setOpen(o => !o)}>
-        <span>About the Candidates</span>
-        <span className={`see-more-arrow${open ? ' open' : ''}`}>▼</span>
+
+      <div className="candidate-section-label">
+        <span className="csl-num">05</span>
+        <div>
+          <div className="csl-title">The Candidates</div>
+          <div className="csl-sub">Who's running · What they bring</div>
+        </div>
       </div>
 
-      <div className={`candidate-drawer${open ? ' open' : ''}`}>
-        <div className="candidate-drawer-inner">
+      <div className="candidate-inner">
 
-          {/* ── Prasun Devkota ── */}
+        {/* ── Prasun Devkota ── */}
+        <div id="candidate-prasun">
+          <div className="candidate-role-tag">President</div>
           <ProfileBlock
-            imgSrc="/candidate.png"
+            imgSrc="/PeasunSt.jpeg"
             name="Prasun Devkota"
             role="NSAS Presidential Candidate · 2025–26"
             badgesLeft={['Finance Major', 'Freshman', '5+ Yrs Scouting', 'SELU · 2025']}
           >
-            <div className="candidate-bio-title">Prasun Devkota</div>
             <div className="candidate-bio-sub">Presidential Candidate · The story behind the campaign</div>
             <p className="candidate-bio-text">
               Prasun arrived at Southeastern Louisiana University in 2025 as a freshman Finance
@@ -78,7 +72,8 @@ export default function CandidateProfile() {
                 { year: '2025', event: <><strong>Arrived at SELU</strong> — Enrolled as a Finance major. First exposure to NSAS via Teej.</> },
                 { year: '2025', event: <><strong>Stayed back after Teej</strong> — Helped with cleanup. Noticed by seniors. Encouraged to run.</> },
                 { year: '2025', event: <><strong>Henna Event</strong> — Participated in operations, observed financial flows and resource management.</> },
-                { year: '2025', event: <><strong>Launched Ek Paila</strong> — Running for President alongside Dipson Bir Kuwar and Rijan Dhakal.</> }
+                { year: '2025', event: <><strong>Podcast at SELU</strong> — Took part in campus podcast, engaging with students and sharing the Ek Paila vision.</> },
+                { year: '2025', event: <><strong>Launched Ek Paila</strong> — Running for President alongside Dipson Bir Kunwar, Rijan Dhakal, and Dibija Chhetri.</> }
               ].map((t, i) => (
                 <div className="timeline-item" key={i}>
                   <div className="timeline-year">{t.year}</div>
@@ -87,32 +82,32 @@ export default function CandidateProfile() {
               ))}
             </div>
           </ProfileBlock>
+        </div>
 
-          <div className="candidate-divider" />
+        <div className="candidate-divider" />
 
-          {/* ── Dipson Bir Kuwar ── */}
+        {/* ── Dipson Bir Kuwar ── */}
+        <div id="candidate-dipson">
+          <div className="candidate-role-tag">Vice President</div>
           <ProfileBlock
-            imgSrc={null}
+            imgSrc="/Dipson.jpeg"
             name="Dipson Bir Kuwar"
             role="Vice Presidential Candidate · 2025–26"
             badgesLeft={['VP Candidate', 'NSAS Member', 'SELU · 2025']}
           >
-            <div className="candidate-bio-title">Dipson Bir Kuwar</div>
             <div className="candidate-bio-sub">Vice Presidential Candidate · The steady hand</div>
             <p className="candidate-bio-text">
-              Dipson Bir Kuwar steps into this campaign as a steady and dependable presence —
+              Dipson Bir Kuwar steps into this campaign as a steady and dependable presence,
               someone who leads from within, supports without the spotlight, and ensures the
               work actually gets done. He and Prasun connected through their shared belief that
               NSAS can be more than it currently is:{' '}
               <strong>more welcoming, more consistent, more present between the big events.</strong>
             </p>
             <p className="candidate-bio-text">
-              As Vice President, Dipson's role is to bridge — between leadership and members,
+              As Vice President, Dipson's role is to bridge, between leadership and members,
               between ideas and execution, between those who show up and those who haven't
               felt a reason to yet.{' '}
-              <strong>
-                He listens before he speaks, and acts before he announces.
-              </strong>{' '}
+              <strong>He listens before he speaks, and acts before he announces.</strong>{' '}
               That combination of patience and decisiveness is exactly what this panel needs
               alongside Prasun's energy.
             </p>
@@ -124,9 +119,9 @@ export default function CandidateProfile() {
             </p>
             <div className="timeline">
               {[
-                { year: '–', event: <><strong>NSAS Member</strong> — Active participant in community events and gatherings at SELU.</> },
-                { year: '–', event: <><strong>Joined Ek Paila</strong> — Partnered with Prasun to co-build a campaign focused on belonging and inclusion.</> },
-                { year: '2025', event: <><strong>Running for VP</strong> — Standing for a version of NSAS where no one falls through the cracks.</> }
+                { year: '2025', event: <><strong>NSAS Member</strong>  Active participant in community events and gatherings at SELU.</> },
+                { year: '2026', event: <><strong>Joined Ek Paila</strong> — Partnered with Prasun to co-build a campaign focused on belonging and inclusion.</> },
+                { year: '2025', event: <><strong>Running for VP</strong> Standing for a version of NSAS where no one falls through the cracks.</> }
               ].map((t, i) => (
                 <div className="timeline-item" key={i}>
                   <div className="timeline-year">{t.year}</div>
@@ -135,19 +130,8 @@ export default function CandidateProfile() {
               ))}
             </div>
           </ProfileBlock>
-
-          {/* ── Full team ── */}
-          <div className="team-section-title">The Full Team</div>
-          <div className="team-grid">
-            <TeamCard emoji="👑" name="Prasun Devkota" role="President"
-              desc="Finance major, Nepal Scout, 5+ years of event management. Believes every step forward counts." />
-            <TeamCard emoji="🤝" name="Dipson Bir Kuwar" role="Vice President"
-              desc="The steady bridge between ideas and action. Ensures every member feels seen and heard." />
-            <TeamCard emoji="📋" name="Rijan Dhakal" role="Secretary"
-              desc="Organized and dependable. Ensures nothing falls through the cracks and every voice is recorded." />
-          </div>
-
         </div>
+
       </div>
     </div>
   );
