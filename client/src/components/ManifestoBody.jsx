@@ -23,14 +23,7 @@ export default function ManifestoBody() {
     <div>
       <div className="opening">
         <p>
-          I didn't know what NSAS was when I landed. I figured it out the same
-          way most of you did — by showing up, looking around, and slowly finding
-          my people. I'm not running because I have everything figured out.{' '}
-          <strong>
-            I'm running because I know exactly what it feels like to be new
-            here, to be grinding, and to still not feel like enough — and I
-            think we can fix that.
-          </strong>
+          Down provided is a list of things I would like to focus on during my campaign:
         </p>
       </div>
 
@@ -38,40 +31,29 @@ export default function ManifestoBody() {
         <SectionHeader num="01" title="Who I am & why I'm here" sub="The story behind the campaign" />
         <StoryCard>
           <p>
-            I'm Prasun Devkota — freshman, finance major, second semester. I came
-            in 2025 not knowing a single person in NSAS. My first real
-            introduction to this community was the Teej program. After the event
-            ended, while most people left,{' '}
-            <strong>I stayed back and helped clean up.</strong> That's when Riyag
-            bhai noticed me and suggested I run. That moment tells you everything
-            about how I approach things.
+            I am Prasun Devkota, a finance major who joined (SELU) in 2025 without knowing
+            anyone in NSAS. My first meaningful introduction to the community was through the
+            Teej program. Since then, I have made a consistent effort to stay involved and
+            understand how the organization operates. I have taken interest in learning about
+            financial processes, event reservations, departmental funding, and the management
+            of food and resources. I am still in the process of learning, but I am committed
+            to improving through active participation.
           </p>
         </StoryCard>
         <StoryCard>
           <p>
-            Since then I've been part of the Henna event — watched how the
-            finances work, how reservations are made, how department funding
-            flows, how food and resources get managed. I'm still learning. But{' '}
-            <strong>
-              I'm a finance major — numbers, planning, and making things
-              sustainable is literally what I'm here to study.
-            </strong>{' '}
-            And I've been doing real event management since my Nepal Scout days —
-            5+ years of coordinating people, programs, and logistics on the
-            ground.
+            In terms of event management, I bring prior experience from my time with Nepal
+            Scouts, where I spent over five years coordinating people and managing
+            responsibilities. This background has helped me develop organizational and
+            teamwork skills that I continue to build upon here.
           </p>
         </StoryCard>
         <StoryCard>
           <p>
-            People say I'm too young, too new, too inexperienced. But who here
-            walked in knowing everything?{' '}
-            <strong>
-              Nobody figures it out before they start. They figure it out by
-              starting.
-            </strong>{' '}
-            I've been inside this community since day one — not watching from the
-            outside, not applying because it looks good on a resume. Because I
-            actually care.
+            I understand that some may view me as new or inexperienced. However, no one begins
+            with complete knowledge. Growth comes from involvement, effort, and willingness to
+            learn. I have been actively engaging with the community not for appearances, but to
+            genuinely develop my skills and contribute meaningfully.
           </p>
         </StoryCard>
 
@@ -89,22 +71,10 @@ export default function ManifestoBody() {
         </StoryCard>
         <StoryCard>
           <p>
-            And even when people show up — some of them are still on the edge.
-            Sitting quietly. Waiting for someone to come to them. Feeling like
-            everyone else knows each other and they missed something.{' '}
-            <strong>
-              Nobody tells you that you don't belong. But sometimes you feel it
-              anyway.
-            </strong>
-          </p>
-        </StoryCard>
-        <StoryCard>
-          <p>
-            Then there's the comparison. Someone's already got an internship.
-            Someone switched to a better major. Someone seems to have it all
-            figured out. That pressure is real and it affects people more than we
-            talk about — including what classes they choose, what paths they take,
-            how confident they feel walking into a room.
+            And even when people do show up, it does not always mean they feel fully involved.
+            You can be present, talk to others, and still feel like you are not really part of
+            things. It is not that people are unwelcoming, but sometimes it just feels like you
+            are not fully connected or included in the bigger picture.
           </p>
         </StoryCard>
       </div>
