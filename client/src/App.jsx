@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ManifestoBody from './components/ManifestoBody';
 import PlansSection from './components/PlansSection';
+import PodcastSection from './components/PodcastSection';
 import FeedbackSection from './components/FeedbackSection';
 import CandidateProfile from './components/CandidateProfile';
 
@@ -13,6 +14,7 @@ export default function App() {
       <div className="m-body">
         <ManifestoBody />
         <PlansSection />
+        <PodcastSection />
         <FeedbackSection />
         <div className="closing-block">
           <div className="closing-big">

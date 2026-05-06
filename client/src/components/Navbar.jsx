@@ -28,7 +28,8 @@ export default function Navbar() {
       <div className={`navbar-links${open ? ' open' : ''}`}>
         <a onClick={() => scroll('manifesto')} href="#manifesto">Manifesto</a>
         <a onClick={() => scroll('plans')} href="#plans">Plans</a>
-        <a onClick={() => scroll('poll')} href="#poll">Vote</a>
+       
+        <a onClick={() => scroll('podcast')} href="#podcast">Podcast</a>
         <a onClick={() => scroll('feedback')} href="#feedback">Feedback</a>
         <div className="nav-divider" />
         <a onClick={() => scroll('candidate-prasun')} href="#candidate-prasun" className="nav-candidate">
@@ -38,6 +39,10 @@ export default function Navbar() {
         <a onClick={() => scroll('candidate-dipson')} href="#candidate-dipson" className="nav-candidate">
           <span className="nav-dot vp" />
           Vice Pres
+        </a>
+        <a onClick={() => scroll('candidate-rijan')} href="#candidate-rijan" className="nav-candidate">
+          <span className="nav-dot vp" />
+          Secretary
         </a>
       </div>
     </nav>

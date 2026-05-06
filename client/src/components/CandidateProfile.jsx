@@ -32,7 +32,7 @@ export default function CandidateProfile() {
       <div className="candidate-section-label">
         <span className="csl-num">05</span>
         <div>
-          <div className="csl-title">The Candidates</div>
+          <div className="csl-title">Face Behind the Concept: <span className="csl-ek-paila">Ek Paila</span></div>
           <div className="csl-sub">Who's running · What they bring</div>
         </div>
       </div>
@@ -69,10 +69,8 @@ export default function CandidateProfile() {
             <div className="timeline">
               {[
                 { year: '2019–', event: <><strong>Nepal Scouts</strong> — 5+ years of event management, leadership, and community coordination.</> },
-                { year: '2025', event: <><strong>Arrived at SELU</strong> — Enrolled as a Finance major. First exposure to NSAS via Teej.</> },
                 { year: '2025', event: <><strong>Stayed back after Teej</strong> — Helped with cleanup. Noticed by seniors. Encouraged to run.</> },
                 { year: '2025', event: <><strong>Henna Event</strong> — Participated in operations, observed financial flows and resource management.</> },
-                { year: '2025', event: <><strong>Podcast at SELU</strong> — Took part in campus podcast, engaging with students and sharing the Ek Paila vision.</> },
                 { year: '2025', event: <><strong>Launched Ek Paila</strong> — Running for President alongside Dipson Bir Kunwar, Rijan Dhakal, and Dibija Chhetri.</> }
               ].map((t, i) => (
                 <div className="timeline-item" key={i}>
@@ -122,6 +120,53 @@ export default function CandidateProfile() {
                 { year: '2025', event: <><strong>NSAS Member</strong>  Active participant in community events and gatherings at SELU.</> },
                 { year: '2026', event: <><strong>Joined Ek Paila</strong> — Partnered with Prasun to co-build a campaign focused on belonging and inclusion.</> },
                 { year: '2025', event: <><strong>Running for VP</strong> Standing for a version of NSAS where no one falls through the cracks.</> }
+              ].map((t, i) => (
+                <div className="timeline-item" key={i}>
+                  <div className="timeline-year">{t.year}</div>
+                  <div className="timeline-content">{t.event}</div>
+                </div>
+              ))}
+            </div>
+          </ProfileBlock>
+        </div>
+
+        <div className="candidate-divider" />
+
+        {/* ── Rijan Dhakal ── */}
+        <div id="candidate-rijan">
+          <div className="candidate-role-tag">Secretary</div>
+          <ProfileBlock
+            imgSrc="/Rijan.jpeg"
+            name="Rijan Dhakal"
+            role="Secretary Candidate · 2025–26"
+            badgesLeft={['Secretary Candidate', 'NSAS Member', 'SELU · 2026']}
+          >
+            <div className="candidate-bio-sub">Secretary Candidate · A bridge, not a title</div>
+            <p className="candidate-bio-text">
+              Rijan Dhakal is running for Secretary not for the position itself, but because
+              he genuinely believes in what NSAS represents —{' '}
+              <strong>a home away from home</strong> for every Nepali student at SELU. His
+              candidacy is rooted in one simple conviction: this community deserves someone
+              who shows up for it.
+            </p>
+            <p className="candidate-bio-text">
+              As Secretary, his focus is on being a{' '}
+              <strong>bridge between students and the board</strong> — making sure
+              communication is clear, decisions are transparent, and no voice goes unheard or
+              unrepresented. He understands that the secretary role is not administrative
+              routine; it is the connective tissue of how the organization functions.
+            </p>
+            <p className="candidate-bio-text">
+              <strong>This is not about me — it's about us.</strong> That is not a slogan for
+              Rijan; it is the entire reason he is running. Together, he believes NSAS can
+              become a more connected, more supportive, and stronger family for every student
+              who walks through its door.
+            </p>
+            <div className="timeline">
+              {[
+                { year: '2025', event: <><strong>NSAS Member</strong> — Active part of the Nepali student community at SELU.</> },
+                { year: '2026', event: <><strong>Joined Ek Paila</strong> — Running alongside Prasun, Dipson, and Dibija to build a more connected NSAS.</> },
+                { year: '2026', event: <><strong>Running for Secretary</strong> — Committed to transparent communication and making every voice count.</> },
               ].map((t, i) => (
                 <div className="timeline-item" key={i}>
                   <div className="timeline-year">{t.year}</div>
